@@ -9,25 +9,34 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
 
 @SuppressWarnings("Duplicates")
-public class FairLock implements Lock {
+public class UnFairLock implements Lock {
 
     private final Queue queue = new Queue();
     private final AtomicInteger reentrantTimes = new AtomicInteger(0);
-    private Thread owner;
+    private volatile Thread owner;
 
     public void lock() {
-        if (owner == Thread.currentThread()) {
+        Thread t = Thread.currentThread();
+        if (owner == t) {
             // reentrant
             reentrantTimes.incrementAndGet();
             return;
         }
         // 公平锁，每个线程都入队，非公平这里直接修改reentrantTimes，如果失败再入队
+        if (reentrantTimes.compareAndSet(0, 1)) {
+            owner = t;
+            return;
+        }
         Node node = new Node(Thread.currentThread());
         Node pre = queue.enqueue(node);
-        if (pre != queue.head.get() || reentrantTimes.get() != 0) {
-            LockSupport.park(this);
+        while (true) {
+            if (pre == queue.head.get() && reentrantTimes.compareAndSet(0, 1)) {
+                gottenLock(pre, node);
+                return;
+            } else {
+                LockSupport.park(this);
+            }
         }
-        gottenLock(pre, node);
     }
 
     // 得到锁，将head 指向当前node，覆盖掉head之前的node，简短
@@ -97,7 +106,7 @@ public class FairLock implements Lock {
             }
             // find node from tail
             Node c = tail.get();
-            while (c != node) {
+            while (c != node && c != null) {
                 n = c;
                 c = c.pre.get();
             }
@@ -146,12 +155,13 @@ public class FairLock implements Lock {
     }
 
     static Integer n = 0;
+
     public static void main(String[] args) throws InterruptedException {
-        Lock lock = new FairLock();
+        Lock lock = new UnFairLock();
         List<Thread> ts = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
             Thread t = new Thread(() -> {
-                for (int j = 0; j < 1000; j++) {
+                for (int j = 0; j < 100; j++) {
                     lock.lock();
                     n += 1;
                     lock.unlock();
