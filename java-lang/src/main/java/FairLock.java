@@ -1,4 +1,5 @@
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +22,7 @@ public class FairLock implements Lock {
             reentrantTimes.incrementAndGet();
             return;
         }
+        ByteBuffer.allocateDirect()
         // 公平锁，每个线程都入队，非公平这里直接修改reentrantTimes，如果失败再入队
         Node node = new Node(Thread.currentThread());
         Node pre = queue.enqueue(node);
