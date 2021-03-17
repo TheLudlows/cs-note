@@ -13,10 +13,8 @@
         <module>sort</module>
         <module>tree</module>
         <module>graph</module>
-        <module>dp</module>
-        <module>book</module>
-        <module>kaggle</module>
         <module>big-data</module>
+        <module>leetcode</module>
 
     </modules>
 
