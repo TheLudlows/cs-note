@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class p_38permutation {
+public class p38_permutation {
     public String[] permutation(String s) {
         char[] chars = s.toCharArray();
         Arrays.sort(chars);
@@ -43,7 +43,7 @@ public class p_38permutation {
     }
 
     public static void main(String[] args) {
-       String[] arr = new p_38permutation().permutation("aab");
+       String[] arr = new p38_permutation().permutation("aab");
         System.out.println(Arrays.toString(arr));
     }
 
