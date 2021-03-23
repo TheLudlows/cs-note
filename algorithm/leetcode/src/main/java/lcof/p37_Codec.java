@@ -1,8 +1,5 @@
 package lcof;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 // 先序遍历
 public class p37_Codec {
 

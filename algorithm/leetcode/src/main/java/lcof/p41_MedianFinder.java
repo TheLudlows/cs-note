@@ -2,12 +2,12 @@ package lcof;
 
 import java.util.PriorityQueue;
 
-public class p46_MedianFinder {
+public class p41_MedianFinder {
 
     PriorityQueue<Integer> maxQueue;
     PriorityQueue<Integer> minQueue;
 
-    p46_MedianFinder() {
+    p41_MedianFinder() {
         minQueue = new PriorityQueue();
         maxQueue = new PriorityQueue<>((x, y) -> y - x);
     }
@@ -34,7 +34,7 @@ public class p46_MedianFinder {
     }
 
     public static void main(String[] args) {
-        p46_MedianFinder finder = new p46_MedianFinder();
+        p41_MedianFinder finder = new p41_MedianFinder();
         finder.addNum(1);
         System.out.println(finder.findMedian());
         finder.addNum(2);

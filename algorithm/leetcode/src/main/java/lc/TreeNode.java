@@ -1,4 +1,4 @@
-package lcof;
+package lc;
 
 public class TreeNode {
     public int val;
