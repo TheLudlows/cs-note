@@ -18,7 +18,6 @@ public class MaxSum {
         max(arr);
     }
 
-
     public static void max(int[] price) {
         recur(price, 0, 0);
         System.out.println(res);
