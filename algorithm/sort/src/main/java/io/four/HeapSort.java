@@ -1,5 +1,7 @@
 package io.four;
 
+import java.util.Arrays;
+
 import static io.four.QuickSort.swap;
 
 public class HeapSort {
@@ -18,38 +20,29 @@ public class HeapSort {
         }
     }
 
-    /**
-     * 调整堆
-     * @param arr 待排序列
-     * @param parent 父结点
-     * @param length 待排序列尾元素索引
-     */
-    private static void adjustHeap(int[] arr, int parent, int length) {
-        //将temp作为父结点
-        int temp = arr[parent];
-        //左孩子
-        int biggerIndex = 2 * parent + 1;
-
-        while (biggerIndex < length) {
-            //右孩子
-            int rChild = biggerIndex + 1;
-            // 如果有右孩子结点，并且右孩子结点的值大于左孩子结点，则选取右孩子结点
-            if (rChild < length && arr[biggerIndex] < arr[rChild]) {
-                biggerIndex++;
-            }
-
-            // 如果父结点的值已经大于孩子结点的值，则直接结束
-            if (temp >= arr[biggerIndex]) {
-                break;
-            }
-
-            // 把孩子结点的值赋给父结点
-            arr[parent] = arr[biggerIndex];
-
-            //选取孩子结点的左孩子结点,继续向下筛选
-            parent = biggerIndex;
-            biggerIndex = 2 * biggerIndex + 1;
+    private static void adjustHeap(int[] arr, int parent, int len) {
+        if (parent >= len) {
+            return;
         }
-        arr[parent] = temp;
+        int max = parent;
+        int c1 = 2 * parent + 1;
+        int c2 = 2 * parent + 2;
+
+        if (c1 < len && arr[c1] > arr[max]) {
+            max = c1;
+        }
+        if (c2 < len && arr[c2] > arr[max]) {
+            max = c2;
+        }
+        if(max != parent) {
+            swap(arr,parent, max);
+            adjustHeap(arr, max, len);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{10,4,8,5,9,9};
+        heapSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
