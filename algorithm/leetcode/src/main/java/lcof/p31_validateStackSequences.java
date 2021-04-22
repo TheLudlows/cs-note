@@ -1,9 +1,9 @@
 package lcof;
 
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 public class p31_validateStackSequences {
-
 
     public boolean validateStackSequences(int[] pushed, int[] popped) {
         int i = 0;
