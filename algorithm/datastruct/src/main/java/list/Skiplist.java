@@ -1,4 +1,4 @@
-package datastruct;
+package list;
 
 import java.util.concurrent.ThreadLocalRandom;
 

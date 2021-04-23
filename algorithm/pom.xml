@@ -15,6 +15,7 @@
         <module>graph</module>
         <module>big-data</module>
         <module>leetcode</module>
+        <module>datastruct</module>
 
     </modules>
 
