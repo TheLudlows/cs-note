@@ -3,7 +3,8 @@ package list;
 import java.util.concurrent.ThreadLocalRandom;
 
 class Skiplist {
-    private static int DEFAULT_MAX_LEVEL = 32;
+    private static int DEFAULT_MAX_LEVEL = 12;
+    private static int BRANCHING_FACTOR = 4;
     Node head = new Node(null, DEFAULT_MAX_LEVEL);
     int currentLevel = 0;
 
@@ -26,7 +27,7 @@ class Skiplist {
         for (int i = currentLevel; i >= 0; i--) {
             //找到本层最近离num最近的list
             updateNode = findLevel(updateNode, i, num);
-            if(updateNode.next[i]!= null && updateNode.next[i].value == num) {
+            if (updateNode.next[i] != null && updateNode.next[i].value == num) {
                 break;
             }
             if (i <= level) {
@@ -71,7 +72,7 @@ class Skiplist {
 
     private static int randomLevel() {
         int level = 0;
-        while (ThreadLocalRandom.current().nextBoolean() && level < DEFAULT_MAX_LEVEL - 1) {
+        while (ThreadLocalRandom.current().nextInt() % BRANCHING_FACTOR == 0 && level < DEFAULT_MAX_LEVEL - 1) {
             level++;
         }
         return level;
@@ -80,6 +81,7 @@ class Skiplist {
     class Node {
         Integer value;
         Node[] next;
+
         public Node(Integer value, int size) {
             this.value = value;
             this.next = new Node[size];
@@ -92,13 +94,13 @@ class Skiplist {
         for (int i = currentLevel; i >= 0; i--) {
             buffer.append("level:" + i);
             Node node = head.next[i];
-            while (node!= null) {
+            while (node != null) {
                 buffer.append(" ");
                 buffer.append(node.value);
                 buffer.append(",");
                 node = node.next[i];
             }
-            buffer.deleteCharAt(buffer.length()-1);
+            buffer.deleteCharAt(buffer.length() - 1);
             buffer.append("\n");
         }
         return buffer.toString();
@@ -106,9 +108,9 @@ class Skiplist {
 
     public static void main(String[] args) {
         Skiplist sp = new Skiplist();
-        for(int i=0;i<100;i++) {
+        for (int i = 0; i < 100; i++) {
             sp.add(ThreadLocalRandom.current().nextInt(10000));
         }
-        System.out.println(sp.toString());
+        System.out.println(sp);
     }
 }
