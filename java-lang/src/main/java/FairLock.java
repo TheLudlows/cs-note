@@ -1,5 +1,3 @@
-
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -11,7 +9,6 @@ import java.util.concurrent.locks.LockSupport;
 
 @SuppressWarnings("Duplicates")
 public class FairLock implements Lock {
-
     private final Queue queue = new Queue();
     private final AtomicInteger reentrantTimes = new AtomicInteger(0);
     private Thread owner;
@@ -22,7 +19,6 @@ public class FairLock implements Lock {
             reentrantTimes.incrementAndGet();
             return;
         }
-        ByteBuffer.allocateDirect()
         // 公平锁，每个线程都入队，非公平这里直接修改reentrantTimes，如果失败再入队
         Node node = new Node(Thread.currentThread());
         Node pre = queue.enqueue(node);
@@ -91,7 +87,9 @@ public class FairLock implements Lock {
             }
         }
 
-        // AQS尾部开始寻找，因为入队时，新节点先设置新节点的pre，如果当前节点的下个节点为空或者已取消，那么尾部开始找第一个没取消的node
+        // AQS尾部开始寻找，因为入队时，新节点先设置新节点的pre，如果当前节点的下个节点为空或者已取消，那么尾部开始找第一个没取消的node,为什么可能为空？因为入队需要
+        // 三步 1.set node.pre = tail 2.set tail=node 3.oldTail.next = node // 3之前node.next为空
+
         Node findNext(Node node) {
             Node n = node.next.get();
             if (n != null) {
@@ -148,6 +146,7 @@ public class FairLock implements Lock {
     }
 
     static Integer n = 0;
+
     public static void main(String[] args) throws InterruptedException {
         Lock lock = new FairLock();
         List<Thread> ts = new ArrayList<>();
