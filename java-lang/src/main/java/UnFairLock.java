@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
@@ -18,7 +20,7 @@ public class UnFairLock implements Lock {
     public void lock() {
         Thread t = Thread.currentThread();
         if (owner == t) {
-            // reentrant
+            // reentranthttps://code.aliyun.com/948844647/2021-tianchi-contest-1.git
             reentrantTimes.incrementAndGet();
             return;
         }

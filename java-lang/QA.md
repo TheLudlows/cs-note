@@ -40,7 +40,7 @@
 
 11. IO模型
     四种IO模型 重点多路复用
-12. NIO
+12. NIO reactor
 13.FULL GC young GC
     
 14. 垃圾收集器
@@ -48,6 +48,15 @@ serial  parnew parallel scavage
     serialold   parold cms
     
 15. GC调优
+
+16.Spring 事务传播机制
+
+17.Mysql
+Mysql调优
+18. redis 缓存同步？雪崩 持久化
+19 netty
+    
+20 设计模式
 
 
 https://www.nowcoder.com/discuss/356120
