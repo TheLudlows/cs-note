@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 import static io.four.QuickSort.swap;
 
+/**
+ * 堆排序步骤
+ * 1. 先把数组堆化，构建为一个大顶堆，此时堆顶为最大元素，交换最后一个元素和堆顶元素。继续构建堆。然后将堆的长度-1。
+ */
 public class HeapSort {
 
     private static void heapSort(int[] arr) {
@@ -12,12 +16,12 @@ public class HeapSort {
             adjustHeap(arr, i, arr.length);
         }
         //调整堆结构+交换堆顶元素与末尾元素
-        for (int i = arr.length - 1; i > 0; i--) {
+        /*for (int i = arr.length - 1; i > 0; i--) {
             //将堆顶元素与末尾元素进行交换
             swap(arr, 0, i);
             //重新对堆进行调整
             adjustHeap(arr, 0, i);
-        }
+        }*/
     }
 
     private static void adjustHeap(int[] arr, int parent, int len) {
@@ -34,14 +38,14 @@ public class HeapSort {
         if (c2 < len && arr[c2] > arr[max]) {
             max = c2;
         }
-        if(max != parent) {
-            swap(arr,parent, max);
+        if (max != parent) {
+            swap(arr, parent, max);
             adjustHeap(arr, max, len);
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{10,4,8,5,9,9};
+        int[] arr = new int[]{10, 4, 8, 5, 9, 9};
         heapSort(arr);
         System.out.println(Arrays.toString(arr));
     }
