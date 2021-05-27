@@ -46,7 +46,9 @@ classLoader之前，都是在检查是否加载过，并不会选择自己去加
 
 17.Mysql Mysql调优
 
-18. redis 缓存同步？雪崩 持久化 19 netty
+18. redis 缓存同步？雪崩 持久化 
+
+19 netty
 
 20 设计模式
 
