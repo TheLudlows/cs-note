@@ -36,7 +36,8 @@
 classLoader之前，都是在检查是否加载过，并不会选择自己去加载。直到BootstrapClassLoader，已经没有父加载器了，这时候开始考虑自己是否能加载了，如果自己无法加载，会下沉到子加载器去加载
 
 11. IO模型 四种IO模型 重点多路复用
-12. NIO reactor 13.FULL GC young GC
+12. NIO reactor 
+13.FULL GC young GC
 
 14. 垃圾收集器 serial parnew parallel scavage serialold parold cms
 
