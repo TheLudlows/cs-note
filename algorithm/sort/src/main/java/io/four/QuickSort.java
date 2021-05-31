@@ -8,34 +8,38 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void quickSortHelp(int[] arr) {
-        quickSort(arr, 0, arr.length - 1);
+        qs(arr, 0, arr.length - 1);
     }
 
-    public static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int partition = partition(arr, low, high);
-            quickSort(arr, low, partition - 1);
-            quickSort(arr, partition + 1, high);
+    public static void qs(int[] arr, int l, int r) {
+        if (l >= r) {
+            return;
         }
+        // 找到中枢
+        int p = partition(arr, l, r);
+        qs(arr, l, p - 1);
+        qs(arr, p + 1, r);
     }
 
-    public static int partition(int[] arr, int low, int high) {
-        int pivot = low;
-        int j = low + 1; // 小于p的下标
-        int p = arr[low];
-        for (int i = j; i <= high; i++) {
-            if (arr[i] < p) {
-                swap(arr, j++, i);  //满足条件交换位置，且index向右移动
+    public static int partition(int arr[], int l, int r) {
+        int p = l;
+        l += 1;
+        while (l <= r) {
+            if (arr[l] > arr[p]) {
+                swap(arr, r, l);
+                r--;
+            } else {
+                l++;
             }
         }
-        swap(arr, pivot, j - 1);
-        return j - 1;
+        swap(arr, p, r);
+        return r;
     }
 
-    public static void swap(int[] arr, int high, int low) {
-        int temp = arr[low];
-        arr[low] = arr[high];
-        arr[high] = temp;
+    public static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
     public static void main(String[] args) {
