@@ -1,4 +1,4 @@
-package lc;
+package hj;
 
 public class hj35 {
     public static void main(String[] args) {

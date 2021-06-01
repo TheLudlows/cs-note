@@ -1,4 +1,4 @@
-package lc;
+package hj;
 
 import java.io.IOException;
 

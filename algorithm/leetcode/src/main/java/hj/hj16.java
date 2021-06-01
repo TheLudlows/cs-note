@@ -1,4 +1,4 @@
-package lc;
+package hj;
 
 //TODO
 public class hj16 {
