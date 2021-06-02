@@ -43,7 +43,8 @@ classLoader之前，都是在检查是否加载过，并不会选择自己去加
 
 15. GC调优
 
-16.Spring 事务传播机制
+16.Spring 事务传播机制 事务失效 引擎、public、内部调用、
+https://zhuanlan.zhihu.com/p/98357492
 
 17.Mysql Mysql调优
 
