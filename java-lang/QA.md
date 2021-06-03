@@ -59,4 +59,28 @@ JDK空轮训的BUG 1.6 之前
 
 20 设计模式
 
+21. 如何优化接口性能
+  并行化、缓存 、缓存是否失效、数据库索引 GC(java)
+
+22 分布式系统
+   分区策略 hash range  优劣
+   数据副本一致性  raft
 堆排 快排
+
+todo
+time_wait 和 close_wait
+Https
+6.网络，输入 www.baidu.com 都会发生什么
+
+7.http 报文结构，头部都有哪些字段
+
+8.进程与线程，了解协程吗（大概说了下）
+
+9.死锁了解吗，说一下条件，如何解决
+
+TCP 是长连接还是短连接
+
+group by 和 having
+死锁问题
+https://blog.csdn.net/oBuShanQing/article/details/86408091?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.baidujs&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.baidujs
+https://zhuanlan.zhihu.com/p/357519584
