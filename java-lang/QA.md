@@ -46,7 +46,7 @@ classLoader之前，都是在检查是否加载过，并不会选择自己去加
 16.Spring 事务传播机制 事务失效 引擎、public、内部调用、
 https://zhuanlan.zhihu.com/p/98357492
 
-17.Mysql Mysql调优
+17.Mysql Mysql调优  in 索引？
 
 18. redis 缓存同步？雪崩 持久化 
 
@@ -58,6 +58,9 @@ IO IO多路复用、充分的利用Linux 的epoll 特性
 JDK空轮训的BUG 1.6 之前
 
 20 设计模式
+
+21 mybatis 一集缓存 session级别 sql语句相同，二级缓存 app级别 
+22 限流算法 计数器  漏桶，请求进入桶中，匀速处理，可以用定去处理请求 令牌桶 匀速的产生令牌到桶里，请求每次去桶里获取，如果没有则等待。
 
 21. 如何优化接口性能
   并行化、缓存 、缓存是否失效、数据库索引 GC(java)
