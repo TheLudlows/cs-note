@@ -43,7 +43,7 @@ classLoader之前，都是在检查是否加载过，并不会选择自己去加
 
 15. GC调优
 
-16.Spring 事务传播机制 事务失效 引擎、public、内部调用、
+16.Spring 事务传播机制 事务失效 引擎、public、内部调用、相互依赖
 https://zhuanlan.zhihu.com/p/98357492
 
 17.Mysql Mysql调优  in 索引？
@@ -63,7 +63,7 @@ JDK空轮训的BUG 1.6 之前
 22 限流算法 计数器  漏桶，请求进入桶中，匀速处理，可以用定去处理请求 令牌桶 匀速的产生令牌到桶里，请求每次去桶里获取，如果没有则等待。
 
 21. 如何优化接口性能
-  并行化、缓存 、缓存是否失效、数据库索引 GC(java)
+  并行化、缓存 、缓存是否失效、数据库索引 GC(java)、算法层面优化
 
 22 分布式系统
    分区策略 hash range  优劣
@@ -71,19 +71,5 @@ JDK空轮训的BUG 1.6 之前
 堆排 快排
 
 todo
-time_wait 和 close_wait
-Https
-6.网络，输入 www.baidu.com 都会发生什么
-
-7.http 报文结构，头部都有哪些字段
-
-8.进程与线程，了解协程吗（大概说了下）
-
-9.死锁了解吗，说一下条件，如何解决
-
-TCP 是长连接还是短连接
-
-group by 和 having
-死锁问题
 https://blog.csdn.net/oBuShanQing/article/details/86408091?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.baidujs&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.baidujs
 https://zhuanlan.zhihu.com/p/357519584
