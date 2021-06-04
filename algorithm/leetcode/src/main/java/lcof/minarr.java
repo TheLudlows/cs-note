@@ -1,5 +1,6 @@
-class Solution {
+package lcof;
 
+class Solution {
     // 最小值 ，右边
     public int minArray(int[] arr) {
         int l = 0;
