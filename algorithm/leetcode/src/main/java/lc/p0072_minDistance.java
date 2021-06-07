@@ -14,6 +14,7 @@ public class p0072_minDistance {
         return dis(word1, word1.length() - 1, word2, word2.length() - 1);
     }
 
+    // 如果某个为0，那么两者的编辑距离就是剩余的那个的长度+1
     public int dis(String w1, int i, String w2, int j) {
         if (i < 0) {
             return j + 1;
