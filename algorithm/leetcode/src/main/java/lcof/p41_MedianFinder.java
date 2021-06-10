@@ -3,7 +3,7 @@ package lcof;
 import java.util.PriorityQueue;
 
 public class p41_MedianFinder {
-
+    // java 默认小顶堆， 小顶堆存大的那部分数据，大顶堆存小的那部分数据
     PriorityQueue<Integer> maxQueue;
     PriorityQueue<Integer> minQueue;
 
@@ -17,11 +17,11 @@ public class p41_MedianFinder {
         if ((maxQueue.size() - minQueue.size()) > 1) {
             minQueue.offer(maxQueue.poll());
         }
-
         if(minQueue.size() > 0 && maxQueue.peek() > minQueue.peek()) {
            minQueue.offer(maxQueue.poll());
            maxQueue.offer(minQueue.poll());
         }
+
     }
 
     public double findMedian() {
