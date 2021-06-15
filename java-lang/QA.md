@@ -72,11 +72,11 @@ JDK空轮训的BUG 1.6 之前
 
 堆排 快排
 
-todo
-https://blog.csdn.net/oBuShanQing/article/details/86408091?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.baidujs&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.baidujs
-https://zhuanlan.zhihu.com/p/357519584
-
-拓展技巧
-
-https://zhuanlan.zhihu.com/p/150659982?from_voters_page=true
-https://www.bilibili.com/video/BV17i4y1x71z?from=search&seid=6333474413499275517
+23. 接口相应慢的排查思路
+- 服务器资源的适用情况，具体定位到某个进程
+- 定位到Java进程的话， 1.gc 考虑gc日志 耗时 gstat gc次数，考虑gc的原因 2. 业务代码，根据日志分析
+  
+   - ygc？年轻代的总容量、以及比例
+   - full gc？ System.gc的影响，代码显示调用、堆外空间不足、即用System.gc参数开启
+               老年代的占用情况 jmap具体分析哪些对象占用了内存
+               永久带的使用情况，元空间 1.8迁移到了堆外，默认不限制大小
