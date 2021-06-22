@@ -7,7 +7,7 @@ import java.util.List;
 public class p38_permutation {
     public String[] permutation(String s) {
         char[] chars = s.toCharArray();
-        Arrays.sort(chars);
+        //Arrays.sort(chars);
         List<String> list = new ArrayList<>();
         StringBuffer cur = new StringBuffer();
         boolean[] vit = new boolean[chars.length];
@@ -28,17 +28,17 @@ public class p38_permutation {
         }
 
         for (int i = 0; i < chars.length; i++) {
-            //if(!vit[i]) {
+            if(!vit[i]) {
                 System.out.println(cur.toString());
                 if(i > 0 && chars[i] == chars[i-1] /*&& vit[i-1]*/) {
                     continue;
                 }
-               // vit[i] = true;
+                vit[i] = true;
                 cur.append(chars[i]);
                 trace(chars,list,cur,vit);
                 cur.deleteCharAt(cur.length()-1);
-               // vit[i] = false;
-           // }
+                vit[i] = false;
+            }
         }
     }
 
