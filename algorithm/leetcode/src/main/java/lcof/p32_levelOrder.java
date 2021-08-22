@@ -1,16 +1,11 @@
 package lcof;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class p32_levelOrder {
     public int[] levelOrder(TreeNode root) {
-        if(root == null) {
-            return new int[0];
-        }
-        Queue<TreeNode> queue = new ArrayDeque();
+
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {

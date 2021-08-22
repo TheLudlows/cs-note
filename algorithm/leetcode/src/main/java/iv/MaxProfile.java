@@ -3,7 +3,6 @@ package iv;
 import java.util.Scanner;
 
 public class MaxProfile {
-
     public static void main(String[] args) {
         Scanner scanner  = new Scanner(System.in);
         String s = scanner.nextLine().trim();
