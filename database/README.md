@@ -7,9 +7,9 @@ PostgreSQL指南：内幕探索
 高性能MySQL（第3版）
 从根上理解MySQL
 数据库系统实现
+Presto实战
 
 http://www.redbook.io/index.html
 
 https://cstack.github.io/db_tutorial/
 
-https://time.geekbang.org/column/intro/337
