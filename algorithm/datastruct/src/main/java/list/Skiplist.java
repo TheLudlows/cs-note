@@ -48,7 +48,7 @@ class Skiplist {
         }
     }
 
-    public boolean erase(int num) {
+    public boolean del(int num) {
         boolean flag = false;
         Node searchNode = head;
         for (int i = currentLevel; i >= 0; i--) {
@@ -64,7 +64,7 @@ class Skiplist {
     }
 
     private Node findLevel(Node node, int level, int value) {
-        while ((node.next[level]) != null && value > node.next[level].value) {
+        while ((node.next[level]) != null && node.next[level].value < value) {
             node = node.next[level];
         }
         return node;
