@@ -6,7 +6,7 @@ import java.util.Map;
 public class p0003_lengthOfLongestSubstring {
 
     public static int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap();
         int i = 0;
         int j = 0;
         char[] chars = s.toCharArray();
