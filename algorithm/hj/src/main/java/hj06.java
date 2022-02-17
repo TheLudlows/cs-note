@@ -5,16 +5,19 @@ import java.util.Scanner;
 //todo
 public class hj06 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         long num = scanner.nextLong();
         long sqrt = (long) Math.sqrt(num);
         StringBuilder sb = new StringBuilder();
-        for (int i = 2; i <= num; i++) {
+        for (int i = 2; i <= sqrt; ++i) {
             while (num % i == 0) {
-                sb.append(i).append(" ");
+                sb.append(i).append(' ');
                 num = num / i;
             }
+        }
+        if(num != 1) {
+            sb.append(num);
         }
         if(sb.length() == 0) {
             System.out.println(num);
@@ -22,5 +25,6 @@ public class hj06 {
             System.out.println(sb);
         }
     }
+
 
 }

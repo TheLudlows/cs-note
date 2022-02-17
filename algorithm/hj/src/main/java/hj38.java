@@ -7,12 +7,12 @@ public class hj38 {
 
         Double h = Double.parseDouble(scanner.nextLine());
         Double total = 0.0;
-
-        for (int i = 0; i < 5; i++) {
-            total += h *1.5;
-            h = h / 2;
+        double line = h;
+        for (int i = 0; i < 4; i++) {
+            total += h;
+            line = line / 2.0;
         }
-        System.out.println(total);
-        System.out.println(h);
+        System.out.println(total + h);
+        System.out.println(line / 2.0);
     }
 }
