@@ -3,7 +3,6 @@ package lc;
 import java.util.Stack;
 
 public class p1190_reverse {
-
     public String reverseParentheses(String s) {
         Stack<String> stack = new Stack();
         StringBuilder builder = new StringBuilder();

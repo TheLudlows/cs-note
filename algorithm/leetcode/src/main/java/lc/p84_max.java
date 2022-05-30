@@ -5,7 +5,7 @@ import java.util.Stack;
 public class p84_max {
 
     public int largestRectangleArea(int[] heights) {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack();
         int max = 0;
         for(int i=0;i<=heights.length;i++) {
             int cur ;
