@@ -2,12 +2,10 @@ package lc;
 
 class solution {
 
-    int[][] vit;
     int[][] mem;
     public int longestIncreasingPath(int[][] matrix) {
         int max = 0;
         mem = new int[matrix.length][matrix[0].length];
-        vit = new int[matrix.length][matrix[0].length];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 max = Math.max(max, longest(matrix, i, j));
@@ -17,14 +15,10 @@ class solution {
     }
 
     private int longest(int[][] matrix, int i, int j) {
-        if(vit[i][j] == 1) {
-            return 0;
-        }
         if(mem[i][j] != 0) {
             return mem[i][j];
         }
         int n = matrix[i][j];
-        vit[i][j] = 1;
         // 上
         int maxSub = 0;
         if (i - 1 >= 0 && matrix[i - 1][j] > n) {
@@ -42,7 +36,6 @@ class solution {
         if (j + 1 < matrix[0].length && matrix[i][j+1] > n) {
             maxSub = Math.max(maxSub, longest(matrix, i, j+1));
         }
-        vit[i][j] = 0;
         mem[i][j] = maxSub + 1;
         return maxSub + 1;
     }
