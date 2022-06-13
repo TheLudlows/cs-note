@@ -1,15 +1,12 @@
-https://github.com/pingcap/awesome-database-learning
-Mit 6830
-MySQL技术内幕:InnoDB存储引擎(第2版)
-PostgreSQL指南：内幕探索
-数据密集型应用系统设计
-数据库系统内幕 http://images.china-pub.com/ebook8065001-8070000/8069768/ch01.pdf
-高性能MySQL（第3版）
-从根上理解MySQL
-数据库系统实现
-Presto实战
+1. 数据库系统实现
 
-http://www.redbook.io/index.html
+2. https://courses.cs.washington.edu/courses/cse444/19sp/ 的Lectures，这是UW关于该课程的ppt，强烈推荐，通俗易懂。 https://courses.cs.washington.edu/courses/cse444/12sp
+   https://courses.cs.washington.edu/courses/cse444/22sp/
 
-https://cstack.github.io/db_tutorial/
+3. https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-830-database-systems-fall-2010/assignments/ 
+4. http://db.lcs.mit.edu/6.830/
+这里的Lab就是教你一步步实现一个简单的关系型数据库系统，不仅要写完代码，而且要对整个系统的方方面面自己要梳理一遍，哪些模块用了书上的哪些方法，这些方法有什么优缺点，以及它的替代方法有哪些，以及优缺点。
 
+4. https://www.icourse163.org/course/HIT-1001578001
+
+建议：这些资料混着看更有效果，例如做Lab1的内容，把上边说的书、ppt、视频对应的内容看看，基本就可以融会贯通了
