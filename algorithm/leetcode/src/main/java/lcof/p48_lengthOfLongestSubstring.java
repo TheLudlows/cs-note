@@ -7,24 +7,28 @@ import java.util.Map;
 ///双指针 map
 public class p48_lengthOfLongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        char[] chars = s.toCharArray();
-        int size = 0;
+        int left = 0;
+        int right = 0;
         int max = 0;
-        for (int i = 0, start = 0; i < chars.length; i++) {
-            if (!map.containsKey(chars[i])) {
-                size++;
-            } else {
-                start = Math.max(map.get(chars[i]), start);
-                size = i - start;
+        Map<Character, Integer> map = new HashMap<>();
+
+        while(right < s.length()) {
+            char c = s.charAt(right);
+            if(map.containsKey(c)) {
+                int oldIdx = map.get(c);
+                for(int i = left;i<=oldIdx;i++) {
+                    map.remove(s.charAt(i));
+                }
+                left = oldIdx + 1;
             }
-            map.put(chars[i], i);
-            max = Math.max(max, size);
+            map.put(c, right);
+            max = Math.max(max, right - left + 1);
+            right++;
         }
         return max;
     }
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("abba"));
+        System.out.println(lengthOfLongestSubstring("abcabcbb"));
     }
 }

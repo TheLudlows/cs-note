@@ -21,4 +21,8 @@ public class p26_isSubStructure {
         return A.val == B.val && sub(A.left, B.left) && sub(A.right, B.right);
     }
 
+    public static void main(String[] args) {
+
+    }
+
 }

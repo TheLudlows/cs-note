@@ -1,23 +1,19 @@
 package lcof;
 
-import java.util.List;
 
 public class p18_deleteNode {
     public ListNode deleteNode(ListNode head, int val) {
-        ListNode res = head;
-        ListNode pre = null;
+        ListNode pre= new ListNode(0);
+        pre.next = head;
+        ListNode ret = pre;
+
         while (head != null) {
             if (head.val == val) {
-                break;
+                pre.next = head.next;
             }
             pre = head;
             head = head.next;
         }
-        if (pre == null) {
-            res = head.next;
-        } else {
-            pre.next = head.next;
-        }
-        return res;
+       return ret.next;
     }
 }

@@ -8,10 +8,10 @@ public class p46_translateNum {
         dp[1] = 1;
         for (int i = 2; i <= s.length(); i++) {
             int n = Integer.parseInt(s.substring(i-2,i));
-            char last_char = s.charAt(i-2);
+            char first_char = s.charAt(i-2);
             System.out.println(n);
             dp[i] = dp[i-1];
-            if(n < 26 && last_char != '0' ) {
+            if(n < 26 && first_char != '0' ) {
                dp[i] +=dp[i-2];
             }
         }

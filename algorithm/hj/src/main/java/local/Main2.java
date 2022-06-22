@@ -34,7 +34,6 @@ public class Main2 {
                 left += 1;
             }
             if (current == flaw && set.contains(line.charAt(left)) && set.contains(line.charAt(right))) {
-
                 max = Math.max(max, right + 1 - left);
             }
             right += 1;

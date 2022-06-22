@@ -19,14 +19,14 @@
 
 5. 线程池入队的时机，拒绝策略。直接拒绝，rejectException，丢弃任务不抛异常。
 6. CAS ABA问题，AtomicStampedReference 版本号解决
-7. ReentrantLock/ AQS 状态标志 队列 入队 公平 head 节点
+7. ReentrantLock/ AQS _状态标志 队列 入队 公平 head 节点_
 
 -- JMM 内存模型
 
 8. CyclicBarrier CountDownLatch
 9. ThreadLocal -> reference 弱引用 虚引用 Cleaner对象 虚引用，回收后会在后台添加队列时free
 
-10.class loader
+10. class loader
 
 - Bootstrap classLoader:主要负责加载核心的类库(java.lang.*等)，构造ExtClassLoader和APPClassLoader。
 - ExtClassLoader：主要负责加载jre/lib/ext目录下的一些扩展的jar。
@@ -80,3 +80,20 @@ JDK空轮训的BUG 1.6 之前
    - full gc？ System.gc的影响，代码显示调用、堆外空间不足、即用System.gc参数开启
                老年代的占用情况 jmap具体分析哪些对象占用了内存
                永久带的使用情况，元空间 1.8迁移到了堆外，默认不限制大小
+
+
+项目：
+1. 题目 & 难点以及挑战
+海量数据实现quantaile 函数，求查询任意rank K，挑战点，如何充分的利用PMEM的新型存储。IO和CPU都可能成为瓶颈，要取得好成绩须尽量同时打满CPU和IO
+2. 思路与方案
+
+稳定性保障
+1. 应用服务器  水位 内存/磁盘 GC耗时
+2. 接口的稳定性保障 限流、降级 鉴权
+3. 缓存check 大key 热key， 容量
+4. 数据库层面 
+
+18年毕业于西安电子科技大学，校招去的京东，做商城订单、商家相关后台开发，
+后来来到阿里这边，做订单、交易相关开发，主要做订单数据系统，包括订单数据的场景化服务，订单的存储系统、异构数据系统，后来以及一些复杂查询、分析的场景。
+
+
