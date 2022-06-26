@@ -1,7 +1,6 @@
 package lcof;
 
 public class p05_replaceSpace {
-
     public String replaceSpace(String s) {
        char[] chars =  s.toCharArray();
        StringBuffer buffer = new StringBuffer();

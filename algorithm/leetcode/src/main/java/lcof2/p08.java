@@ -5,29 +5,6 @@ import java.util.Arrays;
 import static com.sun.prism.impl.PrismSettings.trace;
 
 public class p08 {
-    public int minSubArrayLen(int target, int[] nums) {
-        int[] sum = new int[nums.length + 1];
-
-        for (int i = 0; i < sum.length; i++) {
-            sum[i] += nums[i - 1];
-        }
-
-        int minLen = Integer.MAX_VALUE;
-        System.out.println(Arrays.toString(sum));
-        for (int i = 0; i < sum.length; i++) {
-            for (int j = i + 1; j < sum.length; j++) {
-                if (sum[j] - sum[i] >= target) {
-                    minLen = Math.min(j - i, minLen);
-                }
-            }
-        }
-
-        if (minLen == Integer.MAX_VALUE) {
-            return 0;
-        } else {
-            return minLen;
-        }
-    }
 
     public static int minSubArrayLen1(int target, int[] nums) {
 
