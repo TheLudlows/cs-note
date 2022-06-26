@@ -9,7 +9,7 @@ public class p09 {
 
         while (j < nums.length) {
             multiply *= nums[j];
-            while (multiply >= k && i <= j) {
+            while (multiply >= k) {
                 multiply /= nums[i];
                 i++;
             }
