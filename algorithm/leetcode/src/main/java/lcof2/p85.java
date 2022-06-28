@@ -12,7 +12,7 @@ public class p85 {
     }
 
     private void dfs(int n, int open, int close, StringBuilder stringBuilder) {
-        if(open == 2* n) {
+        if(open + close == 2* n) {
             res.add(stringBuilder.toString());
             return;
         }

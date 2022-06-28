@@ -19,7 +19,7 @@ public class p76 {
     }
 
     // 对撞指针，
-    private int partition(int[] nums, int i, int j) {
+    private static int partition(int[] nums, int i, int j) {
         int p = i;
         i+=1;
         while(i<=j) {
@@ -34,13 +34,15 @@ public class p76 {
         return j;
     }
 
-    private void swap(int[] nums, int i, int j) {
+    public static void main(String[] args) {
+        int idx = partition(new int[]{3,5,4,1,2},0,4);
+        System.out.println(idx);
+    }
+
+    private static void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    public static void main(String[] args) {
-        new p76().findKthLargest(new int[]{3,2,1,5,6,4}, 2);
-    }
 }
