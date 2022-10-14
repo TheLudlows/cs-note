@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-class Solution {
+public class Solution1 {
     public int leastBricks(List<List<Integer>> wall) {
         Map<Integer,Integer> map = new HashMap();
         int max = 0;
